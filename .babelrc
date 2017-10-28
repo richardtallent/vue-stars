@@ -2,8 +2,10 @@
   "presets": [
     ["env", {
       "modules": false,
+      "useBuiltIns": true,
+      "include": ["es6.array.from"],
       "targets": {
-        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 10"]
       }
     }],
     "stage-2"

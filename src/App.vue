@@ -11,6 +11,13 @@
 		<div class="box">
 			<vue-rating></vue-rating>
 		</div>
+
+		<h2 class="title is-2 is-spaced">Browser Compatibility</h2>		
+		<p>This component is <i>at least</i> compatible with the current versions of Chrome, Firefox, Edge, iOS Safari,
+		and desktop Safari. IE11 is supported other than customizing the colors (which requires CSS variables
+		support.)</p>
+
+		<h2 class="title is-2 is-spaced">Supported Properties</h2>
 		<p>The following properties are supported:</p>
 		<dl>
 			<dt>name</dt>
@@ -24,7 +31,7 @@
 			<dt>char</dt>
 			<dd>The character to use for the rating. The default is a Unicode star (<kbd>★</kbd>). You can set a different
 				character for each rating value by providing a multi-character string. Note that if you want to use
-				JavaScript escaping for the character(s), you have to use <kdb>v-bind</kdb> form and put the escaped
+				JavaScript escaping for the character(s), you have to use <kbd>v-bind</kbd> form and put the escaped
 				string inside single quotes so it evaluates in JavaScript. For a normal attribute, you can use <HTML>
 				character encoding.</HTML></dd>
 			<dt>color</dt>
@@ -42,7 +49,7 @@
 		<h3 class="subtitle is-4">Rating 1-7, using eight-pointed pinwheel stars (✵) and an initial value of 5</h3>
 		<pre>&lt;vue-rating :max="7" char="✵" :value="5"&gt;&lt;/vue-rating&gt;</pre>
 		<div class="box">
-			<vue-rating name="myPinwheelRating" :max="7" char="✵" :value="5"></vue-rating>
+			<vue-rating name="myPinwheelRating" :max=7 char="✵" v-model.number="currentRating"></vue-rating>
 		</div>
 
 		<h3 class="subtitle is-4">Rating 1-5, using letters and an initial value of 2</h3>
@@ -103,9 +110,7 @@ import VueRating from './components/vue-rating'
 
 export default {
   name: 'app',
-  props: {
-	  currentRating: { type: Number, default: 3 }
-  },
+  data: function() { return { currentRating: 3 }; },
   components: {
     VueRating
   }
