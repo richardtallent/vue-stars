@@ -5,27 +5,28 @@
 IE11 support still needs some work, but otherwise this control is ready for real-world use. Please
 let me know if it's helpful to you!
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Demo
+A demo application is included demonstrating some of the flexibility of this control. For a live
+demo, visit [https://www.tallent.us/vue-stars/](https://www.tallent.us/vue-stars/).
 
 ## Properties
 The following properties are supported:
 
-### name
-Name of the underlying form field (which uses radio buttons). The default is <kbd>rating</kbd>. This
-**must be unique** on your page, otherwise browsers will apply changes to one rating to others with
-the same name. This means if you have more than one `<vue-stars>` control on your page, this property
-*is* required.
+#### name
+Name of the underlying form fields. The default is <kbd>rating</kbd>. This **must be unique** on
+your page, otherwise browsers will apply changes to one rating to others with the same name. This
+means if you have more than one `<vue-stars>` control on your page, this property *is* required.
 
-## readonly
+### readonly
 Like native input controls, if this is set, the user cannot make changes to the value, but the control
 will still submit a value if it is part of a form. Hover animations are also disabled.
 
-## value
+### value
 The **integer** value of the current rating, from 0 (no set value) to `max`. Since this is a number,
 be sure to use the v-bind syntax this attribute (*e.g.*, `:value="3"` rather than `value="3"`). If not
 specified, the default value is `0`.
 
-## char
+### char
 This is the character to use for each rating. The default is the Unicode star (`★`).
 
 If you would like to use a different character for each value from 1-`max`, you can provide a 
@@ -45,7 +46,7 @@ for `inactiveChar` (below) is highly recommended. Keep in mind that if you use t
 for `char`, many emoji characters are outside the 16-bit range of `\uXXXX`, so you'll need to use the
 surrogate pair form (lead and tail). There's an example of this using smilie faces in the sample app.
 
-## inactiveChar
+### inactiveChar
 Sometimes, you may want to use a different set of characters for the "active" values than the "inactive"
 ones. This property works exactly like `chars`, but applies only to values between `value+1` and `max`.
 If not provided, this falls back to the `char` property.
@@ -61,16 +62,16 @@ Some additional properties are supported on all modern browsers (in other words,
 all accept any normal CSS color expression (triplets, `rgb()`, etc.). Remember to use kebab-case for
 your attributes.
 
-# activeColor
+### activeColor
 If specified, this overrides the default gold color used for the active values.
 
-# inactiveColor
+### inactiveColor
 If specified, this overrides the default grey color used for the active values.
 
-# hoverColor
+### hoverColor
 If specified, this overrides the default lighter gold color used when hovering over a value.
 
-# shadowColor
+### shadowColor
 If specified, this overrides the default light yellow color used for the active values. (Inactive
 values don't have a shadow.)
 

@@ -98,13 +98,13 @@
 	</div>
 </template>
 <script>
-import VueRating from './components/vue-stars'
+import VueStars from './components/vue-stars'
 
 export default {
   name: 'app',
   data: function() { return { currentRating: 3 }; },
   components: {
-    VueRating
+    VueStars
   }
 }
 </script>
