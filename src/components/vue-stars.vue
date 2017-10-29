@@ -44,7 +44,7 @@ export default {
 	},
 	methods: {
 		updateInput(v) {
-			this.$emit('input', v);
+			this.$emit('input', parseInt(v, 10));
 		},
 		getActiveLabel(x) {
 			const s = this.ratingChars;
