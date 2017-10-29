@@ -1,5 +1,5 @@
 # vue-stars
-> Flexible input control for stars and things
+> Flexible VueJS input control for ratings (stars, etc.)
 
 ## Development Status
 IE11 support still needs some work, but otherwise this control is ready for real-world use. Please
@@ -12,7 +12,7 @@ demo, visit [https://www.tallent.us/vue-stars/](https://www.tallent.us/vue-stars
 ## Properties
 The following properties are supported:
 
-#### name
+### name
 Name of the underlying form fields. The default is <kbd>rating</kbd>. This **must be unique** on
 your page, otherwise browsers will apply changes to one rating to others with the same name. This
 means if you have more than one `<vue-stars>` control on your page, this property *is* required.

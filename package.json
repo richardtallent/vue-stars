@@ -1,7 +1,7 @@
 {
   "name": "vue-stars",
   "version": "0.1.0",
-  "description": "Flexible VueJS input control for stars and things",
+  "description": "Flexible VueJS input control for ratings (stars, etc.)",
   "author": "richardtallent <richard@tallent.us>",
   "license": "MIT",
   "repository": "https://github.com/richardtallent/vue-stars",
