@@ -5,6 +5,7 @@
   "author": "richardtallent <richard@tallent.us>",
   "license": "MIT",
   "repository": "https://github.com/richardtallent/vue-stars",
+  "homepage": "https://tallent.us/vue-stars/",
   "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
