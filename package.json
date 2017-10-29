@@ -1,9 +1,11 @@
 {
-  "name": "vue-rating",
+  "name": "vue-stars",
   "version": "0.1.0",
-  "description": "An input for icon ratings (such as stars)",
+  "description": "Flexible VueJS input control for stars and things",
   "author": "richardtallent <richard@tallent.us>",
-  "private": true,
+  "license": "MIT",
+  "repository": "https://github.com/richardtallent/vue-stars",
+  "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "npm run dev",
