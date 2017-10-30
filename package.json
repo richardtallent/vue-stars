@@ -1,6 +1,6 @@
 {
   "name": "vue-stars",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Flexible VueJS input control for ratings (stars, etc.)",
   "author": "richardtallent <richard@tallent.us>",
   "license": "MIT",

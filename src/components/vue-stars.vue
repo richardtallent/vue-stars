@@ -1,15 +1,14 @@
 <template>
-	<div class="vue-stars" :class="{readonly:readonly}" ref="ratingEl">
-		<input type="radio" :id="formName+'0'" :checked="value===0" :name="formName" value="0"></input>
+	<div class="vue-stars" :class="{readonly:readonly,notouch:notouch}" ref="ratingEl">
+		<input type="radio" :id="name+'0'" :checked="value===0" :name="name" value="0"></input>
 		<template v-for="x in max">
-			<label :for="formName+x" :key="'l'+x"><span class="active">{{getActiveLabel(x)}}</span><span class="inactive">{{getInactiveLabel(x)}}</span></label><input :key="'i'+x"
-				type="radio" 
+			<label :for="name+x" :key="'l'+x"><span class="active">{{getActiveLabel(x)}}</span><span class="inactive">{{getInactiveLabel(x)}}</span></label><input :key="'i'+x"
+				type="radio" @change="updateInput($event.target.value)"
 				:checked="value===x"
-				@change="updateInput($event.target.value)"
-				:id="formName+x"
-				:name="formName"
+				:id="name+x"
+				:name="name"
 				:disabled="readonly"
-				:value="x"></input>
+				:value="x"></input> 
 		</template>
 	</div>
 </template>
@@ -21,14 +20,24 @@ export default {
 		this.setColors();
 	},
 	computed: {
-		ratingChars() { return Array.from(this.char) },
-		inactiveRatingChars() { return this.inactiveChar ? Array.from(this.inactiveChar) : this.ratingChars },
-		formName() { return this.name || 'rating' }
+		ratingChars() {
+			return Array.from(this.char);
+		},
+		inactiveRatingChars() {
+			/* Default to ratingChars if no inactive characters have been provided */
+			return this.inactiveChar ?
+				Array.from(this.inactiveChar)
+				: this.ratingChars;
+		},
+		notouch() {
+			/* For iPhone specifically but really any touch device, there is no true hover state, disabled any pseudo-hover activity. */
+			return !("ontouchstart" in document.documentElement);
+		}
 	},
 	watch: {
-		activeColor: function(value) { this.setColors(); },
-		shadowColor: function(value) { this.setColors(); },
-		hoverColor: function(value) { this.setColors(); },
+		activeColor(value) { this.setColors(); },
+		shadowColor(value) { this.setColors(); },
+		hoverColor(value) { this.setColors(); },
 	},
 	props: {
 		max: { type: Number, required: false, default: 5 },
@@ -76,41 +85,35 @@ export default {
 	.vue-stars label {
 		display:		block;
 		padding:		0.125em;
-		width:			1em;
+		width:			1.2em;
 		text-align:		center;
 		color:			#FD0;
 		text-shadow:	0 0 .3em #FF0;
 	}
 
 	.vue-stars input,
-	.vue-stars:not(.readonly):hover label span.inactive,
-	.vue-stars label span.inactive {
-		display:		none;
+	.vue-stars label .inactive,
+	.vue-stars input:checked ~ label .active,
+	.vue-stars.notouch:not(.readonly):hover label .inactive,
+	.vue-stars.notouch:not(.readonly) label:hover ~ label .active {
+		display:		none;	
 	}
 
-	.vue-stars:not(.readonly):hover label {
+	.vue-stars input:checked ~ label .inactive,
+	.vue-stars.notouch:not(.readonly):hover label .active,
+	.vue-stars.notouch:not(.readonly) label:hover ~ label .inactive {
+		display:		inline;
+	}
+
+	.vue-stars.notouch:not(.readonly):hover label {
 		color:			#DD0;
 		text-shadow:	0 0 .3em #FF0;
 	}
 
-	.vue-stars:not(.readonly):hover label span.active {
-		display:		inline;
-	}
-
 	input:checked ~ label,
-	.vue-stars:not(.readonly) label:hover ~ label {
+	.vue-stars.notouch:not(.readonly) label:hover ~ label {
 		color:			#999;
 		text-shadow:	none;
-	}
-
-	.vue-stars input:checked ~ label span.inactive,
-	.vue-stars:not(.readonly) label:hover ~ label span.inactive {
-		display:		inline;
-	}
-
-	.vue-stars input:checked ~ label span.active,
-	.vue-stars:not(.readonly) label:hover ~ label span.active {
-		display:		none;
 	}
 
 	@supports (color: var(--prop)) {
@@ -118,12 +121,12 @@ export default {
 			color:			var(--active-color);
 			text-shadow:	0 0 .3em var(--shadow-color);
 		}
-		.vue-stars:not(.readonly):hover label {
+		.vue-stars.notouch:not(.readonly):hover label {
 			color:			var(--hover-color);
 			text-shadow:	0 0 .3em var(--shadow-color);
 		}
 		.vue-stars input:checked ~ label,
-		.vue-stars:not(.readonly) label:hover ~ label {
+		.vue-stars.notouch:not(.readonly) label:hover ~ label {
 			color:			var(--inactive-color);
 		}
 	}
