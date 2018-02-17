@@ -1,6 +1,6 @@
 import VueStars from "./VueStars.vue"
 
-module.exports = {
+export default {
 	install: function(Vue) {
 		Vue.component("vue-stars", VueStars)
 	},

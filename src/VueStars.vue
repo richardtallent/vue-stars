@@ -1,8 +1,15 @@
 <template>
-	<div class="vue-stars" :class="{readonly:readonly,notouch:notouch}" ref="ratingEl">
+	<div class="vue-stars" 
+		:class="{readonly:readonly,notouch:notouch}" 
+		ref="ratingEl"
+		:style="mapCssProps"
+		>
 		<input type="radio" :id="name+'0'" :checked="value===0" :name="name" value="0">
 		<template v-for="x in max">
-			<label :for="name+x" :key="'l'+x"><span class="active">{{ getActiveLabel(x) }}</span><span class="inactive">{{ getInactiveLabel(x) }}</span></label><input
+			<label :for="name+x" :key="'l'+x">
+				<span class="active"><slot name="activeLabel">{{ getActiveLabel(x) }}</slot></span>
+				<span class="inactive"><slot name="inactiveLabel">{{ getInactiveLabel(x) }}</slot></span>
+			</label><input
 				:key="'i'+x"
 				type="radio"
 				@change="updateInput($event.target.value)"
@@ -43,20 +50,14 @@ export default {
 			/* For iPhone specifically but really any touch device, there is no true hover state, disabled any pseudo-hover activity. */
 			return !("ontouchstart" in document.documentElement)
 		},
-	},
-	watch: {
-		activeColor() {
-			this.setColors()
+		mapCssProps() {
+			return {
+				"--active-color": this.activeColor,
+				"--inactive-color": this.inactiveColor,
+				"--shadow-color": this.shadowColor,
+				"--hover-color": this.hoverColor,
+			}
 		},
-		shadowColor() {
-			this.setColors()
-		},
-		hoverColor() {
-			this.setColors()
-		},
-	},
-	mounted: function() {
-		this.setColors()
 	},
 	methods: {
 		updateInput(v) {
@@ -69,13 +70,6 @@ export default {
 		getInactiveLabel(x) {
 			const s = this.inactiveRatingChars
 			return s[Math.min(s.length - 1, x - 1)]
-		},
-		setColors() {
-			const s = this.$refs.ratingEl.style
-			s.setProperty("--active-color", this.activeColor)
-			s.setProperty("--inactive-color", this.inactiveColor)
-			s.setProperty("--shadow-color", this.shadowColor)
-			s.setProperty("--hover-color", this.hoverColor)
 		},
 	},
 }

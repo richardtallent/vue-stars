@@ -2,39 +2,27 @@
 
 > Flexible VueJS input control for ratings (stars, etc.)
 
-## Development Status
-
-The current version is 0.3.0. With the caveats under Browser Compatibility below, this control
-is ready for real world use! Please let me know if it's helpful to you.
-
 ## Demo
-
-A demo application is included demonstrating some of the flexibility of this control. For a live
-demo, visit [https://www.tallent.us/vue-stars/](https://www.tallent.us/vue-stars/).
+For a live demo, visit [https://www.tallent.us/vue-stars/](https://www.tallent.us/vue-stars/).
 
 ## Properties
-
 The following properties are supported:
 
 ### name
-
 Name of the underlying form fields. The default is <kbd>rating</kbd>. This **must be unique** on
 your page, otherwise browsers will apply changes to one rating to others with the same name. This
 means if you have more than one `<vue-stars>` control on your page, this property _is_ required.
 
 ### readonly
-
 Like native input controls, if this is set, the user cannot make changes to the value, but the control
 will still submit a value if it is part of a form. Hover animations are also disabled.
 
 ### value
-
 The **integer** value of the current rating, from 0 (no set value) to `max`. Since this is a number,
-_be sure_ to use the v-bind syntax this attribute (_e.g._, `:value="3"` rather than `value="3"`). If not
-specified, the default value is `0`.
+_be sure_ to use the v-bind syntax this attribute (_e.g._, `:value="3"` rather than `value="3"`). If
+not specified, the default value is `0`.
 
 ### max
-
 The **integer** maximum rating (_e.g._, number of stars or other character the user can choose from).
 Since this is a number, _be sure_ to use the v-bind syntax this attribute (_e.g._, `:max="3"` rather
 than `max="3"`). If not specified, the default is `5`.
@@ -102,14 +90,26 @@ Since this is a custom input control, this component emits a single event, `inpu
 is selected by the user (the value is returned as the first argument). This event is required for
 `v-model` to work properly (if you choose to use it).
 
-## Browser Compatibility
+## Slots
+While the built-in `char` and `inactiveChar` works for most use cases, you can used **named slots**
+instead to pass more complex markup for your "stars," such as `svg` or `img` tags, or multi-character
+strings.
 
+### activeLabel
+Used this named slot to pass your own markup to render for an "active star." Because the content will
+be repeated for each active value, the `slot-scope="props"` attribute is required.
+
+### inactiveLabel
+Used this named slot to pass your own markup to render for an "inactive star." Because the content
+will be repeated for each active value, the `slot-scope="props"` attribute is required.
+
+## Browser Compatibility
 This component is <i>at least</i> compatible with the current versions of Chrome, Firefox, Edge, iOS
 Safari, and desktop Safari.
 
 IE11 is partially supported. The JavaScript should transpile properly, but it will need a polyfill
-for the ES6 method `Array.from`, and customized colors are not supported (since IE11 lacks CSS
-variable support).
+for the ES6 method `Array.from`, and custom colors are not supported (since IE11 lacks CSS custom
+property support).
 
 ## Implementation Details
 
@@ -123,12 +123,7 @@ event and change the property yourself, or use `v-model` to set up two-way bindi
 To work around a known (but obscure) issue with Apple iPhone/iPad, the hover animations are disabled
 for touch screen devices.
 
-CSS custom variables are used to implement the custom color properties. I'm hopeful that in the future,
-Vue will support reactive CSS custom properties natively with handlebar replacements in the style area
-of the SFCs.
-
 ## Customizing the Style
-
 Custom colors are handled using properties. To override all other styling, you can use plain old CSS.
 The main `div` for these components has a `vue-stars` class.
 
@@ -149,3 +144,4 @@ npm run build
 | 2017.10.28 | 0.1.0   | First published version                                                                    |
 | 2017.10.30 | 0.2.0   | Fixes mostly for iOS Safari                                                                |
 | 2017.12.16 | 0.3.0   | Rebuild configs from scratch, remove sample app, hopefully building a proper component now |
+| 2017.02.17 | 1.0.0   | Rewrite CSS properties mechanism, add named/scoped slots                                   |
