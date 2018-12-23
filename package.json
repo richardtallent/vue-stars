@@ -1,6 +1,6 @@
 {
 	"name": "vue-stars",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Flexible VueJS input control for ratings (stars, etc.)",
 	"author": "richardtallent <richard@tallent.us>",
 	"main": "dist/vue-stars.js",
@@ -50,7 +50,11 @@
 		"node": ">= 6.0.0",
 		"npm": ">= 5.0.0"
 	},
-	"browserslist": ["> 1%", "last 2 versions", "not ie < 11"],
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not ie < 11"
+	],
 	"prettier": {
 		"useTabs": true,
 		"semi": false,
@@ -74,14 +78,19 @@
 		"globals": {
 			"Vue": true
 		},
-		"extends": ["eslint:recommended", "plugin:vue/recommended"],
+		"extends": [
+			"eslint:recommended",
+			"plugin:vue/recommended"
+		],
 		"rules": {
 			"vue/html-indent": "tab",
 			"vue/max-attributes-per-line": 3,
 			"no-console": "warn"
 		}
 	},
-	"eslintIgnore": ["node_modules/*.*"],
+	"eslintIgnore": [
+		"node_modules/*.*"
+	],
 	"postcss": {
 		"plugins": {
 			"autoprefixer": {}

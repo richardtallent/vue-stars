@@ -110,7 +110,7 @@ export default {
 	text-shadow: 0 0 0.3em #ff0;
 }
 
-input:checked ~ label,
+.vue-stars input:checked ~ label,
 .vue-stars.notouch:not(.readonly) label:hover ~ label {
 	color: #999;
 	text-shadow: none;

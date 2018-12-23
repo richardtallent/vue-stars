@@ -145,3 +145,4 @@ npm run build
 | 2017.10.30 | 0.2.0   | Fixes mostly for iOS Safari                                                                |
 | 2017.12.16 | 0.3.0   | Rebuild configs from scratch, remove sample app, hopefully building a proper component now |
 | 2017.02.17 | 1.0.0   | Rewrite CSS properties mechanism, add named/scoped slots                                   |
+| 2018.12.23 | 1.0.1   | Fix bleed-over of CSS into non-vue-rating checkbox input controls                          |
