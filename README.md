@@ -146,4 +146,7 @@ npm run bundle
 | 2017.12.16 | 0.3.0   | Rebuild configs from scratch, remove sample app, hopefully building a proper component now |
 | 2017.02.17 | 1.0.0   | Rewrite CSS properties mechanism, add named/scoped slots                                   |
 | 2018.12.23 | 1.0.1   | Fix bleed-over of CSS into non-vue-rating checkbox input controls                          |
-| 2018.12.24 | 1.1.0   | Change to using vue ui for development, inject CSS, update build process and deps.			|
+| 2018.12.24 | 1.1.0   | BROKEN. Change to using vue ui for development, inject CSS, update build process and deps.	|
+| 2018.12.24 | 1.1.1   | BROKEN. Fix module export issue.															|
+| 2018.12.24 | 1.1.2   | BROKEN. Still working on module export issues.												|
+| 2018.12.24 | 1.1.3   | Still working on module export issues. Reaching the end of my rope.						|

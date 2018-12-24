@@ -1,9 +1,8 @@
 {
 	"name": "vue-stars",
-	"version": "1.1.0",
+	"version": "1.1.3",
 	"description": "Flexible VueJS input control for ratings (stars, etc.)",
 	"author": "richardtallent <richard@tallent.us>",
-	"main": "dist/vue-stars.js",
 	"license": "MIT",
 	"repository": "https://github.com/richardtallent/vue-stars",
 	"homepage": "https://tallent.us/vue-stars/",
@@ -41,9 +40,47 @@
 			"@vue/prettier"
 		],
 		"rules": {
-			"vue/html-indent": "tab",
-			"vue/max-attributes-per-line": 3,
-			"no-console": "warn"
+			"quotes": [
+				"error",
+				"double",
+				{
+					"avoidEscape": true
+				}
+			],
+			"comma-dangle": [
+				"error",
+				{
+					"arrays": "ignore",
+					"objects": "always-multiline",
+					"imports": "ignore",
+					"exports": "never",
+					"functions": "ignore"
+				}
+			],
+			"arrow-parens": 0,
+			"no-tabs": 0,
+			"indent": [
+				"error",
+				"tab",
+				{
+					"SwitchCase": 1
+				}
+			],
+			"no-console": "warn",
+			"generator-star-spacing": 0,
+			"vue/max-attributes-per-line": 0,
+			"vue/html-self-closing": [
+				2,
+				{
+					"html": {
+						"void": "never",
+						"normal": "always",
+						"component": "always"
+					},
+					"svg": "always",
+					"math": "always"
+				}
+			]
 		},
 		"parserOptions": {
 			"parser": "babel-eslint"
