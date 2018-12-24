@@ -9,10 +9,11 @@
 	"private": false,
 	"scripts": {
 		"serve": "vue-cli-service serve",
-		"build": "vue-cli-service build",
-		"bundle": "vue-cli-service build --target lib --name VueStars ./src/components/VueStars.vue",
+		"build": "vue-cli-service build --name VueStars --entry ./src/index.js --target lib",
 		"lint": "vue-cli-service lint"
 	},
+	"main": "dist/VueStars.umd.js",
+	"module": "dist/VueStars.common.min.js",
 	"dependencies": {
 		"vue": "^2.5.21"
 	},
