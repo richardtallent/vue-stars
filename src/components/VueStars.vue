@@ -1,23 +1,30 @@
 <template>
-	<div class="vue-stars" 
-		:class="{readonly:readonly,notouch:notouch}" 
+	<div
 		ref="ratingEl"
+		class="vue-stars"
+		:class="{readonly:readonly,notouch:notouch}"
 		:style="mapCssProps"
-		>
-		<input type="radio" :id="name+'0'" :checked="value===0" :name="name" value="0">
+	>
+		<input :id="name+'0'" type="radio" :checked="value===0" :name="name" value="0">
 		<template v-for="x in max">
-			<label :for="name+x" :key="'l'+x">
-				<span class="active"><slot name="activeLabel">{{ getActiveLabel(x) }}</slot></span>
-				<span class="inactive"><slot name="inactiveLabel">{{ getInactiveLabel(x) }}</slot></span>
-			</label><input
+			<label :key="'l'+x" :for="name+x">
+				<span class="active">
+					<slot name="activeLabel">{{ getActiveLabel(x) }}</slot>
+				</span>
+				<span class="inactive">
+					<slot name="inactiveLabel">{{ getInactiveLabel(x) }}</slot>
+				</span>
+			</label>
+			<input
+				:id="name+x"
 				:key="'i'+x"
 				type="radio"
-				@change="updateInput($event.target.value)"
 				:checked="value===x"
-				:id="name+x"
 				:name="name"
 				:disabled="readonly"
-				:value="x">
+				:value="x"
+				@change="updateInput($event.target.value)"
+			>
 		</template>
 	</div>
 </template>

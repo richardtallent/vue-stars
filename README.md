@@ -134,7 +134,7 @@ The main `div` for these components has a `vue-stars` class.
 npm install
 
 # build for production with minification
-npm run build
+npm run bundle
 ```
 
 ## Release History
@@ -146,3 +146,4 @@ npm run build
 | 2017.12.16 | 0.3.0   | Rebuild configs from scratch, remove sample app, hopefully building a proper component now |
 | 2017.02.17 | 1.0.0   | Rewrite CSS properties mechanism, add named/scoped slots                                   |
 | 2018.12.23 | 1.0.1   | Fix bleed-over of CSS into non-vue-rating checkbox input controls                          |
+| 2018.12.24 | 1.1.0   | Change to using vue ui for development, inject CSS, update build process and deps.			|
