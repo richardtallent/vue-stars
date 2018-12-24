@@ -134,7 +134,13 @@ The main `div` for these components has a `vue-stars` class.
 npm install
 
 # build for production with minification
-npm run bundle
+npm run build
+```
+
+## Import (required) and Global Registration (optional)
+```JavaScript
+import { VueStars } from "vue-stars"
+Vue.component("vue-stars", VueStars)
 ```
 
 ## Release History
@@ -149,4 +155,4 @@ npm run bundle
 | 2018.12.24 | 1.1.0   | BROKEN. Change to using vue ui for development, inject CSS, update build process and deps.	|
 | 2018.12.24 | 1.1.1   | BROKEN. Fix module export issue.															|
 | 2018.12.24 | 1.1.2   | BROKEN. Still working on module export issues.												|
-| 2018.12.24 | 1.1.3   | Still working on module export issues. Reaching the end of my rope.						|
+| 2018.12.24 | 1.1.3   | Revolved build issue. Minor semi-breaking change, requires dereferenced import.			|
