@@ -2,12 +2,12 @@
 	<div
 		ref="ratingEl"
 		class="vue-stars"
-		:class="{readonly:readonly,notouch:notouch}"
+		:class="{ readonly: readonly, notouch: notouch }"
 		:style="mapCssProps"
 	>
-		<input :id="name+'0'" type="radio" :checked="value===0" :name="name" value="0">
+		<input :id="name + '0'" :checked="value===0" :name="name" type="radio" value="0">
 		<template v-for="x in max">
-			<label :key="'l'+x" :for="name+x">
+			<label :key="'l' + x" :for="name + x">
 				<span class="active">
 					<slot name="activeLabel">{{ getActiveLabel(x) }}</slot>
 				</span>
@@ -16,15 +16,14 @@
 				</span>
 			</label>
 			<input
-				:id="name+x"
-				:key="'i'+x"
+				:id="name + x"
+				:key="'i' + x"
 				type="radio"
-				:checked="value===x"
+				:checked="value === x"
 				:name="name"
 				:disabled="readonly"
 				:value="x"
-				@change="updateInput($event.target.value)"
-			>
+				@change="updateInput($event.target.value)">
 		</template>
 	</div>
 </template>
@@ -38,10 +37,10 @@ export default {
 		char: { type: String, required: false, default: "★" },
 		inactiveChar: { type: String, required: false, default: null },
 		readonly: { type: Boolean, required: false, default: false },
-		activeColor: { type: String, required: false, default: "#FD0" },
-		inactiveColor: { type: String, required: false, default: "#999" },
-		shadowColor: { type: String, required: false, default: "#FF0" },
-		hoverColor: { type: String, required: false, default: "#DD0" },
+		activeColor: { type: String, required: false, default: null },
+		inactiveColor: { type: String, required: false, default: null },
+		shadowColor: { type: String, required: false, default: null },
+		hoverColor: { type: String, required: false, default: null },
 	},
 	computed: {
 		ratingChars() {
@@ -54,16 +53,16 @@ export default {
 				: this.ratingChars
 		},
 		notouch() {
-			/* For iPhone specifically but really any touch device, there is no true hover state, disabled any pseudo-hover activity. */
+			/* For iPhone specifically but really any touch device, there is no true hover state, disables any pseudo-hover activity. */
 			return !("ontouchstart" in document.documentElement)
 		},
 		mapCssProps() {
-			return {
-				"--active-color": this.activeColor,
-				"--inactive-color": this.inactiveColor,
-				"--shadow-color": this.shadowColor,
-				"--hover-color": this.hoverColor,
-			}
+			const result = {}
+			if (this.activeColor) result["--active-color"] = this.activeColor
+			if (this.inactiveColor) result["--inactive-color"] = this.inactiveColor
+			if (this.shadowColor) result["--shadow-color"] = this.shadowColor
+			if (this.hoverColor) result["--hover-color"] = this.hoverColor
+			return result
 		},
 	},
 	methods: {
@@ -125,16 +124,16 @@ export default {
 
 @supports (color: var(--prop)) {
 	.vue-stars label {
-		color: var(--active-color);
-		text-shadow: 0 0 0.3em var(--shadow-color);
+		color: var(--active-color, #fd0);
+		text-shadow: 0 0 0.2em var(--shadow-color, #ff0);
 	}
 	.vue-stars.notouch:not(.readonly):hover label {
-		color: var(--hover-color);
-		text-shadow: 0 0 0.3em var(--shadow-color);
+		color: var(--hover-color, #dd0);
+		text-shadow: 0 0 0.2em var(--shadow-color, #ff0);
 	}
 	.vue-stars input:checked ~ label,
 	.vue-stars.notouch:not(.readonly) label:hover ~ label {
-		color: var(--inactive-color);
+		color: var(--inactive-color, #999);
 	}
 }
 </style>
