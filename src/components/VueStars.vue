@@ -52,7 +52,7 @@ export default {
 		},
 		notouch() {
 			/* For iPhone specifically but really any touch device, there is no true hover state, disables any pseudo-hover activity. */
-			return !("ontouchstart" in document.documentElement)
+			return typeof document !== 'undefined' && !("ontouchstart" in document.documentElement)
 		},
 		mapCssProps() {
 			const result = {}
