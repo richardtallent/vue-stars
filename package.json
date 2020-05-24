@@ -1,65 +1,65 @@
 {
-  "name": "vue-stars",
-  "version": "1.2.1",
-  "private": false,
-  "description": "Flexible VueJS input control for ratings (stars, etc.)",
-  "author": "richardtallent <richard@tallent.us>",
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "bundle": "vue-cli-service build --target lib --name VueStars ./src/index.js"
-  },
-  "main": "dist/VueStars.umd.js",
-  "module": "dist/VueStars.common.min.js",
-  "dependencies": {
-    "core-js": "^3.6.4",
-    "vue": "^2.6.11"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.3.1",
-    "@vue/cli-plugin-eslint": "^4.3.1",
-    "@vue/cli-service": "^4.3.1",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-config-tabsanity": "^1.0.25",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^4.14.1",
-    "prettier": "^1.19.1",
-    "sass-loader": "^7.3.1",
-    "stylelint": "^10.1.0",
-    "stylelint-config-standard": "^18.3.0",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "extends": [
-      "tabsanity"
-    ]
-  },
-  "prettier": {
-    "useTabs": true,
-    "semi": false,
-    "singleQuote": false,
-    "bracketSpacing": true,
-    "printWidth": 160,
-    "trailingComma": "es5"
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "ie >= 11"
-  ],
-  "homepage": "https://tallent.us/vue-stars/",
-  "license": "MIT",
-  "repository": "https://github.com/richardtallent/vue-stars",
-  "stylelint": {
-    "extends": "stylelint-config-standard",
-    "rules": {
-      "indentation": "tab"
-    }
-  }
+	"name": "vue-stars",
+	"version": "1.2.2",
+	"private": false,
+	"description": "Flexible VueJS input control for ratings (stars, etc.)",
+	"author": "richardtallent <richard@tallent.us>",
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"bundle": "vue-cli-service build --target lib --name VueStars ./src/index.js"
+	},
+	"main": "dist/VueStars.umd.js",
+	"module": "dist/VueStars.common.min.js",
+	"dependencies": {
+		"core-js": "^3.6.4",
+		"vue": "^2.6.11"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "^4.3.1",
+		"@vue/cli-plugin-eslint": "^4.3.1",
+		"@vue/cli-service": "^4.3.1",
+		"@vue/eslint-config-prettier": "^6.0.0",
+		"babel-eslint": "^10.1.0",
+		"eslint": "^6.7.2",
+		"eslint-config-tabsanity": "^1.0.25",
+		"eslint-plugin-prettier": "^3.1.1",
+		"eslint-plugin-vue": "^6.2.2",
+		"node-sass": "^4.14.1",
+		"prettier": "^1.19.1",
+		"sass-loader": "^7.3.1",
+		"stylelint": "^10.1.0",
+		"stylelint-config-standard": "^18.3.0",
+		"vue-template-compiler": "^2.6.11"
+	},
+	"eslintConfig": {
+		"extends": [
+			"tabsanity"
+		]
+	},
+	"prettier": {
+		"useTabs": true,
+		"semi": false,
+		"singleQuote": false,
+		"bracketSpacing": true,
+		"printWidth": 160,
+		"trailingComma": "es5"
+	},
+	"postcss": {
+		"plugins": {
+			"autoprefixer": {}
+		}
+	},
+	"browserslist": [
+		"> 1%",
+		"ie >= 11"
+	],
+	"homepage": "https://tallent.us/vue-stars/",
+	"license": "MIT",
+	"repository": "https://github.com/richardtallent/vue-stars",
+	"stylelint": {
+		"extends": "stylelint-config-standard",
+		"rules": {
+			"indentation": "tab"
+		}
+	}
 }

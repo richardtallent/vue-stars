@@ -1,11 +1,6 @@
 <template>
-	<div
-		ref="ratingEl"
-		class="vue-stars"
-		:class="{ readonly: readonly, notouch: notouch }"
-		:style="mapCssProps"
-	>
-		<input :id="name + '0'" :checked="value===0" :name="name" type="radio" value="0">
+	<div ref="ratingEl" class="vue-stars" :class="{ readonly: readonly, notouch: notouch }" :style="mapCssProps">
+		<input :id="name + '0'" :checked="value === 0" :name="name" type="radio" value="0" />
 		<template v-for="x in max">
 			<label :key="'l' + x" :for="name + x">
 				<span class="active">
@@ -23,7 +18,8 @@
 				:disabled="readonly"
 				:value="x"
 				type="radio"
-				@change="updateInput($event.target.value)">
+				@change="updateInput($event.target.value)"
+			/>
 		</template>
 	</div>
 </template>
@@ -52,7 +48,7 @@ export default {
 		},
 		notouch() {
 			/* For iPhone specifically but really any touch device, there is no true hover state, disables any pseudo-hover activity. */
-			return typeof document !== 'undefined' && !("ontouchstart" in document.documentElement)
+			return typeof document !== "undefined" && !("ontouchstart" in document.documentElement)
 		},
 		mapCssProps() {
 			const result = {}

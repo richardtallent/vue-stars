@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<VueStars name="Test"/>
+		<VueStars name="Test" />
 	</div>
 </template>
 
