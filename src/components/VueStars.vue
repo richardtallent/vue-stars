@@ -18,11 +18,11 @@
 			<input
 				:id="name + x"
 				:key="'i' + x"
-				type="radio"
 				:checked="value === x"
 				:name="name"
 				:disabled="readonly"
 				:value="x"
+				type="radio"
 				@change="updateInput($event.target.value)">
 		</template>
 	</div>
@@ -48,9 +48,7 @@ export default {
 		},
 		inactiveRatingChars() {
 			/* Default to ratingChars if no inactive characters have been provided */
-			return this.inactiveChar
-				? Array.from(this.inactiveChar)
-				: this.ratingChars
+			return this.inactiveChar ? Array.from(this.inactiveChar) : this.ratingChars
 		},
 		notouch() {
 			/* For iPhone specifically but really any touch device, there is no true hover state, disables any pseudo-hover activity. */

@@ -160,3 +160,4 @@ Vue.component("vue-stars", VueStars)
 | 2018.12.24 | 1.1.2   | BROKEN. Still working on module export issues.													|
 | 2018.12.24 | 1.1.3   | Revolved build issue. Minor semi-breaking change, requires dereferenced import.				|
 | 2019.05.26 | 1.2.0   | Update deps. Adjusted CSS variables to allow external CSS control. Tweaked shadow.             |
+| 2019.05.26 | 1.2.1   | Buggered the build. Replaces 1.2.0                                                             |

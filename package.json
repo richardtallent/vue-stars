@@ -1,113 +1,65 @@
 {
-	"name": "vue-stars",
-	"version": "1.2.0",
-	"description": "Flexible VueJS input control for ratings (stars, etc.)",
-	"author": "richardtallent <richard@tallent.us>",
-	"license": "MIT",
-	"repository": "https://github.com/richardtallent/vue-stars",
-	"homepage": "https://tallent.us/vue-stars/",
-	"private": false,
-	"scripts": {
-		"serve": "vue-cli-service serve",
-		"build": "vue-cli-service build --name VueStars --entry ./src/index.js --target lib",
-		"lint": "vue-cli-service lint"
-	},
-	"main": "dist/VueStars.umd.js",
-	"module": "dist/VueStars.common.min.js",
-	"dependencies": {
-		"vue": "^2.6.10"
-	},
-	"devDependencies": {
-		"@vue/cli-plugin-babel": "^3.8.0",
-		"@vue/cli-plugin-eslint": "^3.8.0",
-		"@vue/cli-service": "^3.8.0",
-		"@vue/eslint-config-prettier": "^4.0.1",
-		"babel-eslint": "^10.0.1",
-		"eslint": "^5.16.0",
-		"eslint-plugin-vue": "^5.2.2",
-		"node-sass": "^4.12.0",
-		"sass-loader": "^7.1.0",
-		"stylelint": "^10.0.1",
-		"stylelint-config-standard": "^18.3.0",
-		"vue-template-compiler": "^2.6.10"
-	},
-	"eslintConfig": {
-		"root": true,
-		"env": {
-			"node": true
-		},
-		"extends": [
-			"plugin:vue/recommended",
-			"@vue/prettier"
-		],
-		"rules": {
-			"quotes": [
-				"error",
-				"double",
-				{
-					"avoidEscape": true
-				}
-			],
-			"comma-dangle": [
-				"error",
-				{
-					"arrays": "ignore",
-					"objects": "always-multiline",
-					"imports": "ignore",
-					"exports": "never",
-					"functions": "ignore"
-				}
-			],
-			"arrow-parens": 0,
-			"no-tabs": 0,
-			"indent": [
-				"error",
-				"tab",
-				{
-					"SwitchCase": 1
-				}
-			],
-			"no-console": "warn",
-			"generator-star-spacing": 0,
-			"vue/max-attributes-per-line": 0,
-			"vue/html-self-closing": [
-				2,
-				{
-					"html": {
-						"void": "never",
-						"normal": "always",
-						"component": "always"
-					},
-					"svg": "always",
-					"math": "always"
-				}
-			]
-		},
-		"parserOptions": {
-			"parser": "babel-eslint"
-		}
-	},
-	"postcss": {
-		"plugins": {
-			"autoprefixer": {}
-		}
-	},
-	"browserslist": [
-		"> 1%",
-		"last 2 versions",
-		"not ie <= 11"
-	],
-	"prettier": {
-		"useTabs": true,
-		"semi": false,
-		"singleQuote": false,
-		"bracketSpacing": true,
-		"trailingComma": "es5"
-	},
-	"stylelint": {
-		"extends": "stylelint-config-standard",
-		"rules": {
-			"indentation": "tab"
-		}
-	}
+  "name": "vue-stars",
+  "version": "1.2.1",
+  "private": false,
+  "description": "Flexible VueJS input control for ratings (stars, etc.)",
+  "author": "richardtallent <richard@tallent.us>",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "bundle": "vue-cli-service build --target lib --name VueStars ./src/index.js"
+  },
+  "main": "dist/VueStars.umd.js",
+  "module": "dist/VueStars.common.min.js",
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.3.1",
+    "@vue/cli-plugin-eslint": "^4.3.1",
+    "@vue/cli-service": "^4.3.1",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-config-tabsanity": "^1.0.25",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.14.1",
+    "prettier": "^1.19.1",
+    "sass-loader": "^7.3.1",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "extends": [
+      "tabsanity"
+    ]
+  },
+  "prettier": {
+    "useTabs": true,
+    "semi": false,
+    "singleQuote": false,
+    "bracketSpacing": true,
+    "printWidth": 160,
+    "trailingComma": "es5"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "ie >= 11"
+  ],
+  "homepage": "https://tallent.us/vue-stars/",
+  "license": "MIT",
+  "repository": "https://github.com/richardtallent/vue-stars",
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "indentation": "tab"
+    }
+  }
 }
