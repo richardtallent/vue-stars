@@ -1,6 +1,6 @@
 # vue-stars
 
-> Flexible VueJS input control for ratings (stars, etc.)
+> Flexible Vue 3 input control for ratings (stars, etc.)
 
 ## Demo
 
@@ -11,13 +11,26 @@ For a live demo, visit [https://www.tallent.us/vue-stars/](https://www.tallent.u
 This component is working and stable -- I don't have any future updates slated for it, but I'll
 update the build dependencies now and then, and I'm open to any bug fixes, etc.
 
+**Important:** Version 2.0, released 2021-03-27, drops IE11 support and has been migrated to Vue
+3 and Vite. Version 1 is still is available via npm if you need Vue 2 or IE11 support, but it will
+not be maintained going forward.
+
+## TypeScript Support
+
+For some reason, it seems to be nearly impossible to get Vite to be configured to both emit `.d.ts`
+files on build and to allow use of `npm run dev`. The `typescript2` plugin (recommended by some Vue
+experts) just seems to break HMR. So I've given up for now, until the Vite powers that be decide to
+make a functional template for libraries that builds typescript declarations. This has been the only
+real fly in the ointment for me migrating to Vite. If you have ideas, I'm all ears! In the meantime,
+I've decided I can no longer allow this issue to prevent me from releasing the new version.
+
 ## Properties
 
 The following properties are supported:
 
 ### name
 
-Name of the underlying form fields. The default is <kbd>rating</kbd>. This **must be unique** on
+Name of the underlying form fields. The default is `rating`. This **must be unique** on
 your page, otherwise browsers will apply changes to one rating to others with the same name. This
 means if you have more than one `<vue-stars>` control on your page, this property _is_ required.
 
@@ -74,15 +87,7 @@ is used for active and inactive values).
 
 ## Color Properties
 
-Some additional properties are supported on all modern browsers (in other words, not on IE11). These
-all accept any normal CSS color expression (triplets, `rgb()`, etc.). Remember to use kebab-case for
-your attributes.
-
-Rather than using props, you can also just define the CSS variables, shown in parenthesis, in your
-CSS in a way that would cascade down to your `vue-star` components. I personally find using props for
-styling to be suboptimal--there's no editor support for validation, and they just remind me too much
-of the old `FONT` tag days. That said, they aren't difficult to maintain and I know they are less
-cumbersome than the alternatives if you want to do dynamic coloring, so I don't plan to remove them.
+Colors are configured using either the props below, or via CSS variables (in parenthesis).
 
 ### activeColor (--active-color)
 
@@ -132,12 +137,10 @@ will be repeated for each active value, the `slot-scope="props"` attribute is re
 
 ## Browser Compatibility
 
-This component is <i>at least</i> compatible with the current versions of Chrome, Firefox, Edge, iOS
+This component is _at least_ compatible with the current versions of Chrome, Firefox, Edge, iOS
 Safari, and desktop Safari.
 
-IE11 is partially supported. The JavaScript should transpile properly, but it will need a polyfill
-for the ES6 method `Array.from`, and custom colors are not supported (since IE11 lacks CSS custom
-property support).
+IE11 is no longer supported as of version 3.0.
 
 ## Implementation Details
 
@@ -145,8 +148,9 @@ Under the hood, this control uses radio buttons. The buttons themselves are hidd
 with the corresponding `<label>` tags.
 
 As with any Vue input component, the component's `value` property won't automatically change to match
-the user's selection (though the unerlying DOM value will). You'll need to either listen for the `input`
-event and change the property yourself, or use `v-model` to set up two-way binding.
+the user's selection (though the unerlying DOM value will). You'll need to either listen for the
+`update:modelValue` event and change the `modelValue` property yourself, or use `v-model` to set up
+two-way binding.
 
 To work around a known (but obscure) issue with Apple iPhone/iPad, the hover animations are disabled
 for touch screen devices.
@@ -184,3 +188,4 @@ Vue.component("vue-stars", VueStars)
 | 2019.05.26 | 1.2.0   | Update deps. Adjusted CSS variables to allow external CSS control. Tweaked shadow.         |
 | 2019.05.26 | 1.2.1   | Buggered the build. Replaces 1.2.0                                                         |
 | 2020.05.24 | 1.2.2   | Update deps. Fix for SSR (thanks @ulcuber!)                                                |
+| 2021.03.27 | 2.0.0   | Update to Vue 3, TS, Vite.                                                                 |

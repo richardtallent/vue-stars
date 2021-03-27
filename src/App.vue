@@ -1,28 +1,32 @@
 <template>
 	<div id="app">
-		<VueStars name="Test" />
+		<h1>vue-stars</h1>
+		<p>This is a minimal example used for development.</p>
+		<VueStars class="big" name="Test" @update:modelValue="(v) => (value = v)" />
 	</div>
 </template>
+<script lang="ts">
+import { defineComponent } from "vue"
+import VueStars from "./VueStars.vue"
 
-<script>
-import VueStars from "./components/VueStars.vue"
-
-export default {
-	name: "App",
+export default defineComponent({
+	name: "VueStarsDemoApp",
 	components: {
 		VueStars,
 	},
-}
+	data: () => ({
+		value: 0,
+	}),
+})
 </script>
-
-<style lang="scss">
+<style>
 #app {
 	font-family: "Avenir", Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
-	color: #2c3e50;
 	margin-top: 60px;
+}
+
+.big {
 	font-size: 200%;
 }
 </style>
