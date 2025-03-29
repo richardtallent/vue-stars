@@ -8,8 +8,9 @@ For a live demo, visit [https://www.tallent.us/vue-stars/](https://www.tallent.u
 
 ## Status
 
-This component is working and stable -- I don't have any future updates slated for it, but I'll
-update the build dependencies now and then, and I'm open to any bug fixes, etc.
+*I'm not actively using or maintaining this library, or using it personally anymore. It was a nice
+ride, but there are now many UI libraries for Vue with similar components. I'm a pretty busy guy,
+so I need to focus what little time I have for OSS on other projects.*
 
 **Important:** Version 2.0, released 2021-03-27, drops IE11 support and has been migrated to Vue
 3 and Vite. Version 1 is still is available via npm if you need Vue 2 or IE11 support, but it will
